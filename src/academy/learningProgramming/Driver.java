@@ -58,7 +58,7 @@ public class Driver {
 
 
     private static MenuOptions getOptionFromUser() {
-        return MenuOptions.getOption(getNextNumber());
+        return MenuOptions.getOptionID(getNextNumber());
     }
 
     public static int getNextNumber() {

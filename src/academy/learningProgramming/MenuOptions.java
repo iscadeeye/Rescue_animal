@@ -11,35 +11,32 @@ public enum MenuOptions {
     EXIT(0, "EXIT");
 
 
-    private final int option;
+    private final int optionID;
 
     private final String value;
 
 
-    MenuOptions(int option, String value) {
-        this.option = option;
+    MenuOptions(int optionID, String value) {
+        this.optionID = optionID;
         this.value = value;
 
     }
 
 
-    public int getOption() {
-        return option;
+    public int getOptionID() {
+        return optionID;
     }
 
     public String getValue() {
         return value;
     }
 
-    public static MenuOptions getOption(int option) {
+    public static MenuOptions getOptionID(int option) {
         for ( MenuOptions options : MenuOptions.values() ) {
-            if (option == options.getOption()) {
+            if (option == options.getOptionID()) {
                 return options;
             }
         }
-
-        throw new IllegalArgumentException(String.format("Menu option %s does not exist", option));
+        return null;
     }
-
-
 }
