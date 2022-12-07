@@ -25,13 +25,13 @@ public class Driver {
 
     }
 
-
+    //Menu options. display menu options to user util use hits 0.
     public static void menuOptions() {
         MenuOptions option;
         do {
-            displayMenu();
+            displayMenu(); // display menu options.
 
-            option = getOptionFromUser();
+            option = getOptionFromUser(); // get user option from user
 
             if (option == MenuOptions.TAKE_NEW_DOG) {
                 intakeNewDog(scanner);
@@ -56,11 +56,12 @@ public class Driver {
         } while (option != MenuOptions.EXIT);
     }
 
-
+    // Returns MenuOptions type option. example. EXIT or RESERVE_ANIMAL.
     private static MenuOptions getOptionFromUser() {
         return MenuOptions.getOptionID(getNextNumber());
     }
 
+    // Returns an int user input.
     public static int getNextNumber() {
         return scanner.nextInt();
     }
@@ -84,6 +85,7 @@ public class Driver {
 
     //Take a new dog.
     public static void intakeNewDog(Scanner scanner) {
+        scanner.nextLine();
         System.out.println("What is the dog's name?\n");
         String name = scanner.nextLine();
         for ( Dog dog : dogList ) {
@@ -142,6 +144,7 @@ public class Driver {
 
     //Take new monkey.
     public static void intakeNewMonkey(Scanner scanner) {
+        scanner.nextLine();
         System.out.println("What is monkey's name?\n");
         String name = scanner.nextLine();
         for ( Monkey monkey : monkeyList ) {
@@ -207,6 +210,7 @@ public class Driver {
 
 
     public static void reserveAnimal(Scanner scanner) {
+        scanner.nextLine();
         boolean foundAnimal = false;
 
         System.out.println("What type animal do you want to resere?:\n Enter 'dog' or 'monkey:\n");
@@ -223,7 +227,6 @@ public class Driver {
                     System.out.println(dog.getName() + " reserved for you.");
                     foundAnimal = true;
                     break; //out of loop if when unreserved dog is found.
-
                 }
             }
             if (!foundAnimal) {
@@ -263,7 +266,7 @@ public class Driver {
         // and at the end of loop, number of animals will be printed:
 
         //check what option the user entered to print appropriate list.
-        if (option == MenuOptions.PRINT_RESERVED_ANIMALS) {
+        if (option == MenuOptions.PRINT_DOGS) {
             for ( Dog dog : dogList ) {
                 System.out.printf("Dog name: %s\n", dog.getName());
                 System.out.printf("Training status: %s\n", dog.getTrainingStatus());
